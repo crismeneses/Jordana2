@@ -202,7 +202,7 @@
 					<ul>
 						
 						<li class="home-green current-item">
-							<a href="home.html">
+							<a href="home.php">
 								<span class="nav-caption">Inicio</span>
 								<span class="nav-description">Página principal</span>
 							</a>								
