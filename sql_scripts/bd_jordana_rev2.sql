@@ -115,4 +115,3 @@ VALUES ("Manzana roja","Fresca y madura",1500,10);
 INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
 VALUES ("Pera","Verde y jugosa",2300,25);
 
-
