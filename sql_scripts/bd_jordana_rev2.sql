@@ -112,4 +112,12 @@ VALUES ("Manzana roja","Fresca y madura",1500,10);
 INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
 VALUES ("Pera","Verde y jugosa",2300,25);
 
+/*Producto_en_Categoria*/
+INSERT INTO `producto_en_categoria`(`idProducto`, `idCategoria`)
+VALUES (1,1);
+
+/*Usuarios*/
+--admin@jordana.com|123456
+INSERT INTO `usuario`(`emailUsuario`, `passwordUsuario`)
+VALUES ('admin@jordana.com','e10adc3949ba59abbe56e057f20f883e');
 
