@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `bd_jordana`.`Producto` (
   `nombreProducto` VARCHAR(60) NOT NULL,
   `descripcionProducto` VARCHAR(45) NOT NULL,
   `precioProducto` DECIMAL(8,2) NOT NULL,
-  `idCategoria` INT NOT NULL,
   `stockProducto` INT NOT NULL,
   PRIMARY KEY (`idProducto`))
 ENGINE = InnoDB;
@@ -106,4 +105,10 @@ INSERT INTO categoria (nombreCategoria) VALUES ('Ofertas');
 INSERT INTO categoria (nombreCategoria) VALUES ('ProductosTemporada');
 INSERT INTO categoria (nombreCategoria) VALUES ('ProximaCosecha');
 */
+
+*/Productos/*
+INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
+VALUES ("Manzana roja","Fresca y madura",1500,10);
+
+
 
