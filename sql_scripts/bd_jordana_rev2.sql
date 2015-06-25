@@ -79,12 +79,12 @@ CREATE TABLE IF NOT EXISTS `bd_jordana`.`Producto_en_Categoria` (
   CONSTRAINT `fk_Producto_has_Categoria_Producto`
     FOREIGN KEY (`idProducto`)
     REFERENCES `bd_jordana`.`Producto` (`idProducto`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Producto_has_Categoria_Categoria1`
     FOREIGN KEY (`idCategoria`)
     REFERENCES `bd_jordana`.`Categoria` (`idCategoria`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -109,6 +109,7 @@ INSERT INTO categoria (nombreCategoria) VALUES ('ProximaCosecha');
 /*Productos*/
 INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
 VALUES ("Manzana roja","Fresca y madura",1500,10);
-
+INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
+VALUES ("Pera","Verde y jugosa",2300,25);
 
 
