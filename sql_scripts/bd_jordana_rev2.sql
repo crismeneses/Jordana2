@@ -106,7 +106,7 @@ INSERT INTO categoria (nombreCategoria) VALUES ('ProductosTemporada');
 INSERT INTO categoria (nombreCategoria) VALUES ('ProximaCosecha');
 */
 
-*/Productos/*
+/*Productos*/
 INSERT INTO `producto`(`nombreProducto`, `descripcionProducto`, `precioProducto`, `stockProducto`)
 VALUES ("Manzana roja","Fresca y madura",1500,10);
 
