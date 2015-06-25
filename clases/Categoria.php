@@ -4,6 +4,7 @@ include_once (PATHAPP.'/lib/db_funciones.php');
 class Categoria{
     private $idCategoria;
     private $nombreCategoria;
+    private $productosAsignados;
     private $querysel;
     private $queryins;
     private $querydel;
@@ -15,9 +16,17 @@ class Categoria{
     function getIDCategoria() {
     	return $this->idCategoria;
     }
+    
+    function getCantidadProductosCategoria() {
+    	return $this->productosAsignados;
+    }
 
     function setNombreCategoria($nombreCategoria) {
         $this->nombreCategoria = $nombreCategoria;
+    }
+    
+    function setCantidadProductosCategoria($cantidadProductos) {
+    	$this->productosAsignados = $cantidadProductos;
     }
 
     function __construct($id = NULL,$nombre= NULL) {
@@ -29,7 +38,13 @@ class Categoria{
 		if (!$this->querysel){
 		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
-			$sqlsel="SELECT idCategoria,nombreCategoria FROM categoria ORDER BY nombreCategoria";	
+		
+			//$sqlsel="SELECT idCategoria,nombreCategoria FROM categoria ORDER BY nombreCategoria";
+			$sqlsel="SELECT cat.idCategoria, cat.nombreCategoria, IFNULL(prca.pa,0) AS 'productosAsignados'
+					 FROM `categoria` cat LEFT JOIN (SELECT idCategoria, COUNT(*) AS pa
+													FROM `producto_en_categoria`
+													GROUP BY (idCategoria)) prca
+					ON cat.idCategoria = prca.idCategoria";
 			/*Preparación SQL*/
 			$this->querysel=$db->prepare($sqlsel);
 		
@@ -37,7 +52,9 @@ class Categoria{
 		}
 		$registro = $this->querysel->fetch();
 		if ($registro){
-			return new self($registro['idCategoria'], $registro['nombreCategoria']);			
+			$objCategoria = new self($registro['idCategoria'], $registro['nombreCategoria']);
+			$objCategoria->setCantidadProductosCategoria($registro['productosAsignados']);
+			return $objCategoria;
 		}
 		else {
 			return false;

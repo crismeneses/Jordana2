@@ -80,7 +80,7 @@
 		          	</thead>
 		          	<tbody>
 		          	<?php
-			          	$categorias = new categoria();
+			          	$categorias = new Categoria();
 			          	while($cat = $categorias->Selecciona()){
 		          	?>
 		          	<tr>
@@ -93,7 +93,9 @@
 			          	<td>
 			          		<?=$cat->getNombreCategoria()?>
 			          	</td>
-			          	<td></td>
+			          	<td>
+			          		<?=$cat->getCantidadProductosCategoria()?>
+			          	</td>
 		          	</tr>
 		          	<?php }?>
 		          	</tbody>
@@ -105,6 +107,7 @@
 				  </select>
 				  <input type="submit" class="btn btn-default" name="aplicar" value="Aplicar">
 		      </form>
+		      
           </div>
           <br/>
           
