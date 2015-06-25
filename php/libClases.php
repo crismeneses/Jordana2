@@ -1,6 +1,6 @@
 <?php
 include './constantes.php';
-include PATHAPP. 'clases/categoria.php';
-include PATHAPP. 'lib/db_funciones.php';
+include_once PATHAPP. 'clases/Categoria.php';
+include_once PATHAPP. 'lib/db_funciones.php';
 ?>
 

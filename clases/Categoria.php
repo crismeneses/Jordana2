@@ -1,6 +1,5 @@
 <?php
-
-include ('../lib/db_funciones.php');
+include_once (PATHAPP.'/lib/db_funciones.php');
 
 class Categoria{
     private $idCategoria;

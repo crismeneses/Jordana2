@@ -1,5 +1,6 @@
 <?php
-	include '../clases/Categoria.php';
+	include_once ('../constantes.php');
+	include_once (PATHAPP.'/clases/Categoria.php');
 	print_r($_POST);
 	if(isset($_POST["agregar"])){
 		$nueva_categoria = new Categoria(NULL,$_POST["nombre_categoria"]);
