@@ -1,6 +1,7 @@
+<?php include 'libClases.php'; ?>
 <!DOCTYPE html>
-<html>
-	<head>
+<html>    
+	<head>            
 	    <?php include './php/libreria.php'; ?>   
 	    <?php include './php/header.php'; ?>
 
@@ -164,6 +165,10 @@
 									<!-- Slide -->
 									<div>
 										<!-- Carousel Item -->
+                                                                                
+                                                                                <?php$oProd= new producto();
+                                                                                while ($reg = $oProd->Selecciona()){                                                                                
+                                                                                ?>
 										<div class="product">
 											
 											<div class="product-image">
@@ -175,7 +180,7 @@
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
+												<h5><a href="#"><?=$reg->getNombreProducto(); ?></a></h5>
 												<span class="price">$28.990</span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
@@ -205,7 +210,7 @@
 										<!-- /Carousel Item -->
 									</div>
 									<!-- /Slide -->
-									
+                                                                                <?php } ?>
 									
 									<!-- Slide -->
 									<div>
@@ -220,7 +225,7 @@
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
+												<h5><a href="#"><?=$reg->getNombre(); ?></a></h5>
 												<span class="price">$28.990</span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
