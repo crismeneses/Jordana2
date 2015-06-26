@@ -11,7 +11,7 @@
 							<!-- Newsletter -->
 							<div class="col-lg-7 col-md-7 col-sm-7">
 								<form id="newsletter" action="php/newsletter.php">
-									<h4>Inscribete a las noticias</h4>
+									<h4>Noticias</h4>
 									<input type="text" name="newsletter-email" placeholder="Ingresa correo electrónico">
 									<input type="submit" name="newsletter-submit" value="Enviar">
 								</form>
@@ -21,7 +21,7 @@
 							
 							<!-- Social Media -->
 							<div class="col-lg-5 col-md-5 col-sm-5 social-media">
-								<h4>Mantengase Conectado</h4>
+								<h4>Siguenos</h4>
 								<ul>
 									<li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
 									<li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
