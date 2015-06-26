@@ -1,7 +1,7 @@
 <?php
 	
 /* Email Address */	
-$to      = 'support@companyname.com';
+$to      = 'noticias@jordana.com';
 
 /* Subject */
 $subject = 'Formulario Jordana';
