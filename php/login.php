@@ -1,8 +1,15 @@
 <?php
+	include_once('../constantes.php');
+	include_once(PATHAPP.'/clases/Usuario.php');
+	
+	$objUser = new Usuario("admin@jordana.acom", "123456");
+	
+	if($objUser->VerificarCredenciales()){
+		echo "Acceso autorizado";
+	}
+	else{
+		echo "Acceso denegado";
+	}
+	
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+?>

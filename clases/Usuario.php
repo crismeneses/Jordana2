@@ -19,11 +19,18 @@ class Usuario{
 				 FROM usuario
 				 WHERE emailUsuario=:emailUsr
 				 AND passwordUsuario=:passUsr";
-		$querysel=$db->prepare($sqlsel);
-		$querysel->bindParam(':emailUsr', $this->emailUsuario);
-		$querysel->bindParam(':passUsr', $this->passwordUsuario);
-		$this->querysel->execute();
-		return ($querysel->rowCount()==1); 
+		$this->querysel=$db->prepare($sqlsel);
+		$this->querysel->bindParam(':emailUsr', $this->emailUsuario);
+		$this->querysel->bindParam(':passUsr', $this->passwordUsuario);
+		
+		try {
+			$this->querysel->execute();
+		}
+		catch( PDOException $Exception ) {
+			//echo "Clase Usuario:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+			return false;
+		}
+		return ($this->querysel->rowCount()==1); 
 	}
 	
 }
