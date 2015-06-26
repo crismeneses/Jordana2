@@ -4,7 +4,7 @@ include_once (PATHAPP.'/lib/db_funciones.php');
 class Categoria{
     private $idCategoria;
     private $nombreCategoria;
-    private $productosAsignados;
+    private $cantidadProductos;
     private $querysel;
     private $queryins;
     private $querydel;
@@ -17,16 +17,16 @@ class Categoria{
     	return $this->idCategoria;
     }
     
-    function getCantidadProductosCategoria() {
-    	return $this->productosAsignados;
+    function getCantidadProductos() {
+    	return $this->cantidadProductos;
     }
 
     function setNombreCategoria($nombreCategoria) {
         $this->nombreCategoria = $nombreCategoria;
     }
     
-    function setCantidadProductosCategoria($cantidadProductos) {
-    	$this->productosAsignados = $cantidadProductos;
+    function setCantidadProductos($cantidadProductos) {
+    	$this->cantidadProductos = $cantidadProductos;
     }
 
     function __construct($id = NULL,$nombre= NULL) {
@@ -53,7 +53,7 @@ class Categoria{
 		$registro = $this->querysel->fetch();
 		if ($registro){
 			$objCategoria = new self($registro['idCategoria'], $registro['nombreCategoria']);
-			$objCategoria->setCantidadProductosCategoria($registro['productosAsignados']);
+			$objCategoria->setCantidadProductos($registro['productosAsignados']);
 			return $objCategoria;
 		}
 		else {
@@ -75,8 +75,7 @@ class Categoria{
 		$this->querydel=$db->prepare($sqldel);
 		$this->querydel->bindParam(':idCat',$idCategoria);
 		return $this->querydel->execute();
-		
 	}
-	
+
 }
 ?>

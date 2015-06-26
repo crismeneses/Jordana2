@@ -94,7 +94,7 @@
 			          		<?=$cat->getNombreCategoria()?>
 			          	</td>
 			          	<td>
-			          		<?=$cat->getCantidadProductosCategoria()?>
+			          		<?=$cat->getCantidadProductos()?>
 			          	</td>
 		          	</tr>
 		          	<?php }?>
