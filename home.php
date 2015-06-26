@@ -1,11 +1,12 @@
-<?php include 'libClases.php'; ?>
+
 <!DOCTYPE html>
-<html>    
+<html>      
 	<head>            
 	    <?php include './php/libreria.php'; ?>   
 	    <?php include './php/header.php'; ?>
 
     </head>
+    <?php include 'php/libClases.php'; ?>
 		<body>			
 			<!-- Contenido -->
 			<div class="row content">
@@ -161,18 +162,18 @@
 						<div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="owl-carousel" data-max-items="4">
-									
+									<?php $oProd= new Producto();
+                                                                                while ($registro = $oProd->SeleccionaProd()){                                                                                
+                                                                                ?>
 									<!-- Slide -->
 									<div>
 										<!-- Carousel Item -->
                                                                                 
-                                                                                <?php$oProd= new producto();
-                                                                                while ($reg = $oProd->Selecciona()){                                                                                
-                                                                                ?>
+                                                                                
 										<div class="product">
 											
 											<div class="product-image">
-												<span class="product-tag">Oferta</span>
+												<!--<span class="product-tag">Oferta</span>-->
 												<img src="img/products/sample4.jpg" alt="Product1">
 												<a href="products_page_v1.html" class="product-hover">
 													<i class="icons icon-eye-1"></i> Vista rápida
@@ -180,8 +181,8 @@
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="#"><?=$reg->getNombreProducto(); ?></a></h5>
-												<span class="price">$28.990</span>
+                                                                                            <h5><a href="#"><?=$registro->getNombreProducto(); ?></a></h5>
+                                                                                            <span class="price">$<?=$registro->getPrecioProducto(); ?></span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
@@ -212,240 +213,7 @@
 									<!-- /Slide -->
                                                                                 <?php } ?>
 									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="img/products/sample5.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Vista rápida
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="#"><?=$reg->getNombre(); ?></a></h5>
-												<span class="price">$28.990</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Agregar al carro</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Agregar a favoritos</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Comparar productos</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="img/products/sample6.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Vista rápida
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
-												<span class="price">$28.990</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Agregar al carro</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Agregar a favoritos</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Comparar productos</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="img/products/sample4.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Vista rápida
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
-												<span class="price">$28.990</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Agregar al carro</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Agregar a favoritos</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Comparar productos</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="img/products/sample5.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Vista rápida
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
-												<span class="price">$28.990</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Agregar al carro</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Agregar a favoritos</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Comparar productos</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="img/products/sample6.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Vista rápida
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Nombre del producto</a></h5>
-												<span class="price">$28.990</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Agregar al carro</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Agregar a favoritos</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Comparar productos</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-							</div>
+																</div>
 						</div>
 						<!-- /Carousel -->
 						
