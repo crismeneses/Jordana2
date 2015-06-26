@@ -73,82 +73,7 @@
 						
 						<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
 							<ul class="pull-right">
-								<li class="blue">
-									<a href="compare_products.html"><i class="icons icon-docs"></i>0 Items</a>
-	                            </li>
-								<li class="red">
-									<a href="wishlist.html"><i class="icons icon-heart-empty"></i>2 Items</a>
-	                            </li>
-								<li class="orange"><a href="order_info.html"><i class="icons icon-basket-2"></i>17 Items</a>
-	                            	<ul id="cart-dropdown" class="box-dropdown parent-arrow">
-										<li>
-	                                    	<div class="box-wrapper parent-border">
-	                                            <p>Productos Nuevos</p>
-	                                            
-	                                            <table class="cart-table">
-	                                            	<tr>
-	                                            		<td><img src="img/products/sample1.jpg" alt="product"></td>
-	                                                    <td>
-	                                                        <h6>Producto #1</h6>
-	                                                        <p>Código de Producto</p>
-	                                                    </td>
-	                                                    <td>
-	                                                    	<span class="quantity"><span class="light">1 x</span> $7.900</span>
-	                                                        <a href="#" class="parent-color">Eliminar</a>
-	                                                    </td>
-	                                                </tr>
-	                                                <tr>
-	                                            		<td><img src="img/products/sample1.jpg" alt="product"></td>
-	                                                    <td>
-	                                                        <h6>Producto #2</h6>
-	                                                        <p>Código de Producto</p>
-	                                                    </td>
-	                                                    <td>
-	                                                    	<span class="quantity"><span class="light">1 x</span> $7.900</span>
-	                                                        <a href="#" class="parent-color">Eliminar</a>
-	                                                    </td>
-	                                                </tr>
-	                                                <tr>
-	                                            		<td><img src="img/products/sample1.jpg" alt="product"></td>
-	                                                    <td>
-	                                                        <h6>Producto #3</h6>
-	                                                        <p>Código de Producto</p>
-	                                                    </td>
-	                                                    <td>
-	                                                    	<span class="quantity"><span class="light">1 x</span> $7.900</span>
-	                                                        <a href="#" class="parent-color">Eliminar</a>
-	                                                    </td>
-	                                                </tr>
-	                                            </table>
-	                                            
-	                                            <br class="clearfix">
-	                                        </div>
-	                                        
-											<div class="footer">
-												<table class="checkout-table pull-right">
-	                                            	<tr>
-	                                                	<td class="align-right">Impuesto:</td>
-	                                                    <td>$0.000</td>
-	                                                </tr>
-	                                                <tr>
-	                                                	<td class="align-right">Descuento:</td>
-	                                                    <td>$3.700</td>
-	                                                </tr>
-	                                                <tr>
-	                                                	<td class="align-right"><strong>Total:</strong></td>
-	                                                    <td><strong class="parent-color">$9.990</strong></td>
-	                                                </tr>
-	                                            </table>
-											</div>
-	                                        
-	                                        <div class="box-wrapper no-border">
-	                                        	<a class="button pull-right parent-background" href="#">Comprar</a>
-												<a class="button pull-right" href="order_info.html">Ver Carrito</a>
-	                                        </div>
-										</li>
-									</ul>
-	                            </li>
-
+					
 	                            <!-- CREACIÓN DE CUENTA Y LOGIN -->
 								<li class="login-create purple">
 	                            	<i class="icons icon-user"></i>
@@ -272,5 +197,10 @@
 		<!-- /Header -->		
 	</div>
 </body>
-
+<div class="container">
+			
+			<!-- Header -->
+			<header class="row">
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
 
