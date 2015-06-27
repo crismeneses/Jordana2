@@ -3,7 +3,7 @@
 
 <?php 
 
-	$objProductosCategoria = (new ProductoCategoria())->GetProductosCategoria("2");
+	$objProductosCategoria = (new ProductoCategoria())->GetProductosCategoria("1");
 	//print_r($objProductosCategoria);
 	
 	foreach ($objProductosCategoria as $producto){
