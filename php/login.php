@@ -1,15 +1,14 @@
 <?php
-	include_once('../constantes.php');
-	include_once(PATHAPP.'/clases/Usuario.php');
-	
-	$objUser = new Usuario("admin@jordana.acom", "123456");
-	
-	if($objUser->VerificarCredenciales()){
-		echo "Acceso autorizado";
-	}
-	else{
-		echo "Acceso denegado";
-	}
-	
+include './libClases.php';
 
+$usr=new Usuario("",$_POST['usuario'], $_POST['clave']);
+
+session_start();
+if($usr->VerificaAcceso()){
+	$_SESSION["oUsuario"]=$usr;
+}
 ?>
+<script>
+	document.location.href="home.php";
+</script>
+

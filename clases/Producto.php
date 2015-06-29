@@ -7,6 +7,7 @@ class Producto{
     private $descripcionProducto;
     private $precioProducto;
     private $stockProducto;
+    private $tipoProducto;
     private $querysel;
     private $queryins;
     private $querydel;
@@ -30,6 +31,10 @@ class Producto{
     function getStockProducto() {
         return $this->stockProducto;
     }
+    
+    function getTipoProducto() {
+        return $this->tipoProducto;
+    }
 
     function setIdProducto($idProducto) {
         $this->idProducto = $idProducto;
@@ -50,23 +55,27 @@ class Producto{
     function setStockProducto($stockProducto) {
         $this->stockProducto = $stockProducto;
     }
+    
+    function setTipoProducto($tipoProducto) {
+        $this->tipoProducto = $tipoProducto;
+    }
 
-    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL) {
+    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL, $tipo = NULL) {
         $this->idProducto = $id;
         $this->nombreProducto = $nombre;
         $this->descripcionProducto = $descripcion;
         $this->precioProducto = $precio;
         $this->stockProducto = $stock;
+        $this->tipoProducto = $tipo;
     }
     
-    /* FUNCION PARA SELECCIONAR PRODUCTOS */
+    /* FUNCION PARA SELECCIONAR TODOS LOS PRODUCTOS */
     function SeleccionaProd(){
         
         if (!$this->querysel){
         $db=dbconnect();
         /*Definición del query que permitira ingresar un nuevo registro*/
-        
-            $sqlsel="select idProducto,nombreProducto, descripcionProducto,precioProducto,stockProducto 
+            $sqlsel="select idProducto,nombreProducto, descripcionProducto,precioProducto,stockProducto, tipoProducto 
             from producto order by nombreProducto";
         
             $this->querysel=$db->prepare($sqlsel);
@@ -75,7 +84,7 @@ class Producto{
         
         $registro = $this->querysel->fetch();
         if ($registro){
-            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto']);         
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
         }
         else {
             return false;
@@ -101,6 +110,29 @@ class Producto{
             $valaux=$querydel->execute();
     
         return $valaux;
-    }      	
+    }
+    
+    /* INTENTO DE FUNCION PARA SELECCIONAR SOLO LAS FRUTAS*/
+    function SeleccionaFrutas(){
+        
+        if (!$this->querysel){
+        $db=dbconnect();
+        
+            $sqlsel="select idProducto,nombreProducto, descripcionProducto,precioProducto,stockProducto, tipoProducto 
+            from producto order by nombreProducto";
+        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }
+        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
+        }
+        else {
+            return false;
+            
+        }
+    }
 }
 ?>

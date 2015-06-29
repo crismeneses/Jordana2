@@ -1,4 +1,7 @@
-<?php include 'libClases.php'; ?>
+<?php
+session_start();
+include ("./libClases.php");
+?>
 <head>
 <!-- META TAGS -->
 <meta charset="utf-8">
@@ -95,12 +98,12 @@
 	                                            <br>
 	                                            <br>
 	                                            <div class="pull-left">
-	                                                <input type="submit" class="orange" value="Entrar">
+	                                                <input type="submit" class="orange" value="Acceder">
 	                                            </div>
 	                                            <div class="pull-right">
-	                                                <a href="#">Olvidaste tu clave?</a>
+	                                               <!-- <a href="#">Olvidaste tu clave?</a>
 	                                                <br>
-	                                                <a href="#">Olvidaste tu nombre de usuario?</a>
+	                                                <a href="#">Olvidaste tu nombre de usuario?</a>-->
 													<br>
 	                                            </div>
 	                                            <br class="clearfix">

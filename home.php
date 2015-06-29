@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+include ("./php/libClases.php");
+?>
 <!DOCTYPE html>
 <html>      
 	<head>
