@@ -1,7 +1,4 @@
-<?php
-session_start();
-include ("./libClases.php");
-?>
+<?php include 'libClases.php'; ?>
 <head>
 <!-- META TAGS -->
 <meta charset="utf-8">
@@ -124,7 +121,6 @@ include ("./libClases.php");
 				</div>
 				<!-- /HEADER PRINCIPAL -->
 				
-				
 				<!-- MENU DE NAVEGACIÓN -->
 				<nav id="main-navigation" class="style2">
 					<ul>
@@ -135,10 +131,10 @@ include ("./libClases.php");
 								<span class="nav-description">Página principal</span>
 							</a>								
 							
-						<?php $oCat= new categoria();
+						<?php $oCat= new Categoria();
                                                 while ($reg = $oCat->Selecciona()){
                                                 ?>
-						<li class="green">
+						<li class="green">                                                   
 							<a href="verduras.php">
                                                             <span class="nav-caption"><?=$reg->getNombreCategoria(); ?></span>
 								<span class="nav-description">Catálogo</span>

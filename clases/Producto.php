@@ -94,7 +94,7 @@ class Producto{
 
     function Agregar(){
         $db=dbconnect();
-        $sqlins="INSERT INTO categoria (nombreCategoria) VALUES (:nombre)";
+        $sqlins="INSERT INTO producto (nombreCategoria) VALUES (:nombre)";
         $this->queryins=$db->prepare($sqlins);
         $this->queryins->bindParam(':nombre',$this->nombreProducto);
         return $this->queryins->execute();
@@ -113,18 +113,81 @@ class Producto{
     }
     
     /* INTENTO DE FUNCION PARA SELECCIONAR SOLO LAS FRUTAS*/
-    function SeleccionaFrutas(){
-        
+    function SeleccionaFrutas(){        
         if (!$this->querysel){
-        $db=dbconnect();
-        
-            $sqlsel="select idProducto,nombreProducto, descripcionProducto,precioProducto,stockProducto, tipoProducto 
-            from producto order by nombreProducto";
-        
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE tipoProducto= 'F'";        
             $this->querysel=$db->prepare($sqlsel);
             $this->querysel->execute();
+        }        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
         }
-        
+        else {
+            return false;
+            
+        }
+    }
+    
+    function SeleccionaVerduras(){        
+        if (!$this->querysel){
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE tipoProducto= 'V'";        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
+        }
+        else {
+            return false;
+            
+        }
+    }
+    
+    function SeleccionaHierbas(){        
+        if (!$this->querysel){
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE tipoProducto= 'H'";        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
+        }
+        else {
+            return false;
+            
+        }
+    }
+    
+    function SeleccionaDelicatessen(){        
+        if (!$this->querysel){
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE tipoProducto= 'D'";        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
+        }
+        else {
+            return false;
+            
+        }
+    }
+    
+    function SeleccionaSetas(){        
+        if (!$this->querysel){
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE tipoProducto= 'D'";        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }        
         $registro = $this->querysel->fetch();
         if ($registro){
             return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         

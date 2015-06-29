@@ -34,30 +34,26 @@ class Categoria{
         $this->nombreCategoria = $nombre;
     }
     
-    function Selecciona(){
+    function Selecciona(){		
 		if (!$this->querysel){
 		$db=dbconnect();
-		/*Definición del query que permitira ingresar un nuevo registro*/
+		/*DefiniciÃ³n del query que permitira ingresar un nuevo registro*/
 		
-			//$sqlsel="SELECT idCategoria,nombreCategoria FROM categoria ORDER BY nombreCategoria";
-			$sqlsel="SELECT cat.idCategoria, cat.nombreCategoria, IFNULL(prca.pa,0) AS 'productosAsignados'
-					 FROM `categoria` cat LEFT JOIN (SELECT idCategoria, COUNT(*) AS pa
-													FROM `producto_en_categoria`
-													GROUP BY (idCategoria)) prca
-					ON cat.idCategoria = prca.idCategoria";
-			/*Preparación SQL*/
+			$sqlsel="select idCategoria,nombreCategoria from categoria order by nombreCategoria";
+		
+			/*PreparaciÃ³n SQL*/
 			$this->querysel=$db->prepare($sqlsel);
 		
 			$this->querysel->execute();
 		}
+		
 		$registro = $this->querysel->fetch();
 		if ($registro){
-			$objCategoria = new self($registro['idCategoria'], $registro['nombreCategoria']);
-			$objCategoria->setCantidadProductos($registro['productosAsignados']);
-			return $objCategoria;
+			return new self($registro['idCategoria'], $registro['nombreCategoria']);			
 		}
 		else {
 			return false;
+			
 		}
 	}
 	
