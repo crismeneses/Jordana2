@@ -1,3 +1,6 @@
+<!--
+Falta modificar login
+-->
 <?php
 session_start();
 include ("./php/libClases.php");
