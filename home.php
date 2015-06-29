@@ -393,7 +393,7 @@ include ("./php/libClases.php");
 
                                             <div class="product-image">
                                                     <!--<span class="product-tag">Oferta</span>-->
-                                                    <img src="img/products/sample4.jpg" alt="Product1">
+                                                <img src="img/products/achicoria.jpg" alt="Product1">
                                                     <a href="#" class="product-hover">
                                                             <i class="icons icon-eye-1"></i> Vista rápida
                                                     </a>

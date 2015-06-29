@@ -8,10 +8,19 @@ class Producto{
     private $precioProducto;
     private $stockProducto;
     private $tipoProducto;
+    private $imagen;
     private $querysel;
     private $queryins;
     private $querydel;
     
+    function getImagen() {
+        return $this->imagen;
+    }
+
+    function setImagen($imagen) {
+        $this->imagen = $imagen;
+    }
+      
     function getIdProducto() {
         return $this->idProducto;
     }
@@ -60,13 +69,14 @@ class Producto{
         $this->tipoProducto = $tipoProducto;
     }
 
-    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL, $tipo = NULL) {
+    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL, $tipo = NULL, $img = NULL) {
         $this->idProducto = $id;
         $this->nombreProducto = $nombre;
         $this->descripcionProducto = $descripcion;
         $this->precioProducto = $precio;
         $this->stockProducto = $stock;
         $this->tipoProducto = $tipo;
+        $this->imagen = $img;
     }
     
     /* FUNCION PARA SELECCIONAR TODOS LOS PRODUCTOS */
