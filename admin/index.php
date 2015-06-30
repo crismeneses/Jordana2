@@ -11,10 +11,20 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
+    
   </head>
 
   <body>
+      <?php
+        if (!isset($_SESSION["oUsuario"])){
+            header('Location: formlogin.php');
+            }
+            else{
+                $oUsr=$_SESSION["oUsuario"];
+     ?>
 
+BIENVENIDO: <?=$oUsr->getNombre();?><a href="logout.php">Salir</a>
+<?php }?>
   	<!-- Header -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -35,6 +45,7 @@
             <li><a href="#">Help</a></li>
           </ul>
         </div>
+          <div id="session"></div>
       </div>
     </nav>
 
