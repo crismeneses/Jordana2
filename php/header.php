@@ -47,9 +47,8 @@
 						
 						<nav id="top-navigation" class="col-lg-12 col-md-12 col-sm-12">
 							<ul class="pull-right">
-								<li><a href="crearCuenta.php">Mi Cuenta</a></li>
-								<li><a href="listaOrdenes.php">Lista de Compras</a></li>
-								<li><a href="infoOrdenes.php">Revisa</a></li>
+								<!--<li><a href="crearCuenta.php">Mi Cuenta</a></li>-->
+                                                                <li><a href="admin/index.php">Administrador</a></li>								
 								<li><a href="nosotros.php">Sobre Nosotros</a></li>
 								<li><a href="contacto.php">Contacto</a></li>
 							</ul>
