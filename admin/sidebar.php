@@ -4,6 +4,6 @@
 	</ul>
 	<ul class="nav nav-sidebar">
 		<li><a href="categorias.php">Categorías</a></li>
-		<li><a href="">Productos</a></li>
+                <li><a href="productos.php">Productos</a></li>
 	</ul>
 </div>

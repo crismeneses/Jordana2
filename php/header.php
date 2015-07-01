@@ -134,7 +134,7 @@
                                                 while ($reg = $oCat->Selecciona()){
                                                 ?>
 						<li class="green">                                                   
-							<a href="verduras.php">
+                                                    <a href="producto.php?idcategoria=<?=$reg->getIDCategoria();?>">
                                                             <span class="nav-caption"><?=$reg->getNombreCategoria(); ?></span>
 								<span class="nav-description">Catálogo</span>
 							</a>

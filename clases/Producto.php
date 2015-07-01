@@ -8,19 +8,10 @@ class Producto{
     private $precioProducto;
     private $stockProducto;
     private $tipoProducto;
-    private $imagen;
     private $querysel;
     private $queryins;
     private $querydel;
-    
-    function getImagen() {
-        return $this->imagen;
-    }
-
-    function setImagen($imagen) {
-        $this->imagen = $imagen;
-    }
-      
+            
     function getIdProducto() {
         return $this->idProducto;
     }
@@ -69,14 +60,13 @@ class Producto{
         $this->tipoProducto = $tipoProducto;
     }
 
-    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL, $tipo = NULL, $img = NULL) {
+    function __construct($id= NULL, $nombre = NULL, $descripcion = NULL, $precio = NULL, $stock = NULL, $tipo = NULL) {
         $this->idProducto = $id;
         $this->nombreProducto = $nombre;
         $this->descripcionProducto = $descripcion;
         $this->precioProducto = $precio;
         $this->stockProducto = $stock;
         $this->tipoProducto = $tipo;
-        $this->imagen = $img;
     }
     
     /* FUNCION PARA SELECCIONAR TODOS LOS PRODUCTOS */
@@ -101,12 +91,35 @@ class Producto{
             
         }
     }
+    
+    function BuscaURL(){
+	
+        $db=dbconnect();
+        /*Definición del query que permitira ingresar un nuevo registro*/
+
+        $sqlsel="select idProducto from producto where url=:url";
+
+        /*Preparación SQL*/
+        $querysel=$db->prepare($sqlsel);
+        $querysel->bindParam(':url',$this->surl);
+        $valaux=$querysel->execute();
+
+        if ($querysel->rowcount()>=1)return true; else return false;
+	}
 
     function Agregar(){
         $db=dbconnect();
-        $sqlins="INSERT INTO producto (nombreCategoria) VALUES (:nombre)";
+        if ($this->BuscaURL()){
+            die("Error, la imagen ya esta registrada en la base de datos.");
+            return false;
+	}
+        $sqlins="INSERT INTO producto (nombreCategoria, descripcionProducto, precioProducto,stockProducto, tipoProducto) VALUES (:nombre, :descripcion, :precio, :stock, :tipo)";
         $this->queryins=$db->prepare($sqlins);
         $this->queryins->bindParam(':nombre',$this->nombreProducto);
+        $this->queryins->bindParam(':descripcion',$this->descripcionProducto);
+        $this->queryins->bindParam(':precio',$this->precioProducto);
+        $this->queryins->bindParam(':stock',$this->stockProducto);
+        $this->queryins->bindParam(':tipo',$this->tipoProducto);
         return $this->queryins->execute();
     }
     
@@ -196,6 +209,24 @@ class Producto{
         $db=dbconnect();        
             $sqlsel="select * from producto WHERE tipoProducto= 'D'";        
             $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->execute();
+        }        
+        $registro = $this->querysel->fetch();
+        if ($registro){
+            return new self($registro['idProducto'], $registro['nombreProducto'], $registro['descripcionProducto'], $registro['precioProducto'],$registro['stockProducto'],$registro['tipoProducto']);         
+        }
+        else {
+            return false;
+            
+        }
+    }
+    
+    function SeleccionaProductos($id){        
+        if (!$this->querysel){
+        $db=dbconnect();        
+            $sqlsel="select * from producto WHERE idCategoria=:id";        
+            $this->querysel=$db->prepare($sqlsel);
+            $this->querysel->bindParam(':id',$id);
             $this->querysel->execute();
         }        
         $registro = $this->querysel->fetch();

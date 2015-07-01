@@ -29,7 +29,7 @@
 							
                             <div class="owl-carousel" data-max-items="5">
                                     <?php $oProd= new Producto();
-                                        while ($registro = $oProd->SeleccionaVerduras()){                                                                                
+                                        while ($registro = $oProd->SeleccionaProductos($_GET["idProducto"])){                                                                                
                                     ?>
                                     <!-- Slide -->
                                     <div>
